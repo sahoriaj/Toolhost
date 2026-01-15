@@ -1,4 +1,4 @@
- {
+{
   "name": "toolhost-redesign",
   "version": "2.0.0",
   "private": true,
@@ -12,6 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "npm run build && npx wrangler pages deploy build --project-name=toolhost",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
