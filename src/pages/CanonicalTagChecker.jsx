@@ -107,15 +107,29 @@ const CanonicalTagChecker = () => {
   return (
     <>
       <Helmet>
-        <title>Canonical Tag Checker - ToolHost</title>
-        <meta name="description" content="Check if your website has a canonical tag. Free online canonical tag checker tool." />
+        <title>Canonical Tag Checker - Verify Your SEO Tags | ToolHost</title>
+        <meta 
+          name="description" 
+          content="Free canonical tag checker tool. Verify if your website has proper canonical tags for SEO. Instant results and detailed analysis." 
+        />
+        <meta 
+          name="keywords" 
+          content="canonical tag checker, SEO tool, canonical URL, duplicate content, SEO analysis" 
+        />
       </Helmet>
 
       <main className="canonical-checker-page">
         <div className="canonical-container">
           <Link to="/" className="back-link">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+              <path 
+                d="M19 12H5M12 19l-7-7 7-7" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                fill="none"
+              />
             </svg>
             Back to Tools
           </Link>
@@ -123,13 +137,16 @@ const CanonicalTagChecker = () => {
           <div className="canonical-card">
             <h1>Canonical Tag Checker</h1>
             <p className="canonical-description">
-              Toolhost's Canonical Checker tool looks for the presence of the Canonical Tag in your site's HTML.
-              Google recommends having this tag present on every page.
+              ToolHost's Canonical Checker tool analyzes your website's HTML to verify the presence 
+              of canonical tags. Google recommends having this tag on every page to avoid duplicate 
+              content issues and improve your SEO ranking.
             </p>
 
             <form onSubmit={handleSubmit}>
               <div className="canonical-input-group">
-                <label>Website URL <span className="canonical-required">*</span></label>
+                <label>
+                  Website URL <span className="canonical-required">*</span>
+                </label>
                 <input
                   type="text"
                   value={url}
@@ -137,20 +154,27 @@ const CanonicalTagChecker = () => {
                     setUrl(e.target.value);
                     setResult(null);
                   }}
-                  placeholder="Example.com"
+                  placeholder="example.com or https://example.com"
                   required
                 />
               </div>
 
-              <button type="submit" className="canonical-check-btn" disabled={loading}>
-                Check
+              <button 
+                type="submit" 
+                className="canonical-check-btn" 
+                disabled={loading}
+              >
+                {loading ? 'Analyzing...' : 'Check Canonical Tag'}
               </button>
             </form>
 
             {loading && (
               <div className="canonical-loading">
                 <div className="canonical-progress-wrapper">
-                  <div className="canonical-progress-bar" style={{ width: `${progress}%` }}></div>
+                  <div 
+                    className="canonical-progress-bar" 
+                    style={{ width: `${progress}%` }}
+                  ></div>
                 </div>
                 <p className="canonical-loading-text">
                   Analyzing Website - {progress}% Complete
@@ -168,9 +192,15 @@ const CanonicalTagChecker = () => {
                     <div className={`canonical-result-icon ${result.found ? 'success' : 'danger'}`}>
                       <svg viewBox="0 0 24 24">
                         {result.found ? (
-                          <path fill="#10b981" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                          <path 
+                            fill="#10b981" 
+                            d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                          />
                         ) : (
-                          <path fill="#ef4444" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                          <path 
+                            fill="#ef4444" 
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                          />
                         )}
                       </svg>
                     </div>
@@ -178,19 +208,23 @@ const CanonicalTagChecker = () => {
                   <div className="canonical-result-message">
                     {result.found ? (
                       <>
-                        <strong style={{ color: '#10b981' }}>✓ Canonical Tag Found</strong>
-                        <br /><br />
-                        Your page is using the Canonical Tag.
+                        <strong style={{ color: '#10b981' }}>
+                          ✓ Canonical Tag Found
+                        </strong>
+                        Your page is using the Canonical Tag correctly. This helps search engines 
+                        understand the primary version of your content and prevents duplicate content issues.
                         <br /><br />
                         <strong>Canonical URL:</strong>
-                        <br />
                         <code>{result.canonicalUrl}</code>
                       </>
                     ) : (
                       <>
-                        <strong style={{ color: '#ef4444' }}>✗ Your page is not using the Canonical Tag.</strong>
-                        <br /><br />
-                        The Canonical Tag tells Search Engines the primary URL of a page. Google recommends all pages specify a Canonical.
+                        <strong style={{ color: '#ef4444' }}>
+                          ✗ Canonical Tag Not Found
+                        </strong>
+                        Your page is not using the Canonical Tag. The Canonical Tag tells search engines 
+                        the primary URL of a page. Google recommends all pages specify a canonical URL to 
+                        avoid duplicate content penalties and improve SEO performance.
                       </>
                     )}
                   </div>
@@ -199,20 +233,38 @@ const CanonicalTagChecker = () => {
             )}
           </div>
 
-          <div className="canonical-card" style={{ marginTop: '20px' }}>
+          <div className="canonical-card" style={{ marginTop: '24px' }}>
             <div className="canonical-info-section">
-              <h2>What it is</h2>
+              <h2>What is a Canonical Tag?</h2>
               <p>
-                The Canonical Tag is a HTML Tag that tells Search Engines the primary URL of a page.
-                URLs can have multiple versions due to things like parameters being passed or www and
-                non-www versions, resulting in potential duplicate content. Google recommends all pages
-                specify a Canonical for this reason.
+                The Canonical Tag is an HTML element that tells search engines which version of a URL 
+                is the primary or "canonical" version when multiple URLs have similar or duplicate content. 
+                This is crucial for SEO because URLs can have multiple versions due to parameters, 
+                www/non-www variations, or tracking codes, which can create duplicate content issues.
               </p>
 
-              <h2>How to fix it</h2>
+              <h2>Why is it Important?</h2>
               <p>
-                You may need to determine what the primary preferred version of the page is. Often the
-                CMS may manage this, or provide the ability to specify it.
+                Google and other search engines may penalize sites with duplicate content. By specifying 
+                a canonical URL, you consolidate ranking signals and ensure search engines index your 
+                preferred version. This improves your SEO performance and prevents your site from competing 
+                against itself in search results.
+              </p>
+
+              <h2>How to Fix Missing Canonical Tags</h2>
+              <p>
+                First, determine the preferred version of each page URL. Most modern CMS platforms 
+                (WordPress, Shopify, etc.) automatically manage canonical tags. If you're working with 
+                custom code, add the following tag to your HTML head section:
+              </p>
+              <p>
+                <code style={{ display: 'block', margin: '10px 0', padding: '12px', background: 'var(--bg-secondary)', borderRadius: '8px', border: '1px solid var(--border)' }}>
+                  &lt;link rel="canonical" href="https://example.com/your-page/" /&gt;
+                </code>
+              </p>
+              <p>
+                Replace the href value with your preferred URL. Make sure to use absolute URLs 
+                (including https://) rather than relative paths.
               </p>
             </div>
           </div>
