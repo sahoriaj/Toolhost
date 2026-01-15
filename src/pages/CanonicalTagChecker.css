@@ -1,5 +1,5 @@
 .canonical-checker-page {
-  padding: 30px 15px;
+  padding: 40px 24px;
   min-height: calc(100vh - 200px);
 }
 
@@ -11,150 +11,190 @@
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  color: #2563eb;
+  gap: 10px;
+  color: var(--primary);
   text-decoration: none;
   font-size: 15px;
-  margin-bottom: 30px;
-  padding: 8px 16px;
-  background: rgba(37, 99, 235, 0.1);
-  border-radius: 6px;
-  transition: all 0.3s;
+  font-weight: 600;
+  margin-bottom: 32px;
+  padding: 10px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all var(--transition-base);
 }
 
 .back-link:hover {
-  background: rgba(37, 99, 235, 0.15);
+  background: var(--primary);
+  color: white;
+  transform: translateX(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 .back-link svg {
   width: 20px;
   height: 20px;
+  transition: transform var(--transition-base);
+}
+
+.back-link:hover svg {
+  transform: translateX(-4px);
 }
 
 .canonical-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 30px;
-  border: 1px solid var(--border-color);
+  background: var(--bg-elevated);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base);
+}
+
+.canonical-card:hover {
+  box-shadow: var(--shadow-lg);
 }
 
 .canonical-card h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  color: var(--text-color);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
 .canonical-description {
-  color: var(--text-color);
-  opacity: 0.7;
-  font-size: 15px;
-  margin-bottom: 30px;
-  line-height: 1.6;
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 32px;
+  line-height: 1.7;
 }
 
 .canonical-input-group {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .canonical-input-group label {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-color);
+  margin-bottom: 10px;
+  color: var(--text-primary);
 }
 
 .canonical-required {
   color: #ef4444;
+  font-weight: 700;
 }
 
 .canonical-input-group input[type="text"] {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 15px;
-  transition: all 0.3s;
-  background: var(--card-bg);
-  color: var(--text-color);
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all var(--transition-base);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .canonical-input-group input[type="text"]:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: var(--primary);
+  background: var(--bg-elevated);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
 .canonical-input-group input[type="text"]::placeholder {
-  color: #9ca3af;
+  color: var(--text-tertiary);
 }
 
 .canonical-check-btn {
   width: 100%;
-  background: #eab308;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 10px;
+  transition: all var(--transition-base);
+  margin-top: 12px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.canonical-check-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.canonical-check-btn:hover:not(:disabled)::before {
+  left: 100%;
 }
 
 .canonical-check-btn:hover:not(:disabled) {
-  background: #ca8a04;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.canonical-check-btn:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .canonical-check-btn:disabled {
-  background: #d1d5db;
+  background: var(--border);
   cursor: not-allowed;
   transform: none;
   opacity: 0.6;
 }
 
 .canonical-loading {
-  margin-top: 30px;
+  margin-top: 32px;
   text-align: center;
 }
 
 .canonical-progress-wrapper {
   width: 100%;
-  height: 6px;
-  background: var(--bg-light);
+  height: 8px;
+  background: var(--bg-secondary);
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
-  border: 1px solid var(--border-color);
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
 }
 
 .canonical-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #2563eb, #10b981);
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
   border-radius: 10px;
   transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
 }
 
 .canonical-loading-text {
-  font-size: 14px;
-  color: var(--text-color);
-  opacity: 0.7;
-  font-weight: 500;
+  font-size: 15px;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 .canonical-results {
-  margin-top: 30px;
-  animation: slideIn 0.4s ease;
+  margin-top: 32px;
+  animation: slideIn 0.5s ease;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -163,77 +203,116 @@
 }
 
 .canonical-result-card {
-  background: var(--card-bg);
-  border-radius: 8px;
-  padding: 25px;
-  border: 1px solid var(--border-color);
+  background: var(--bg-elevated);
+  border-radius: 16px;
+  padding: 32px;
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.canonical-result-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
 }
 
 .canonical-result-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  gap: 16px;
 }
 
 .canonical-result-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.canonical-result-title span {
+  color: var(--primary);
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .canonical-result-icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all var(--transition-base);
 }
 
 .canonical-result-icon.success {
-  background: rgba(16, 185, 129, 0.1);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.25));
+  border: 2px solid rgba(16, 185, 129, 0.3);
 }
 
 .canonical-result-icon.danger {
-  background: rgba(239, 68, 68, 0.1);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.25));
+  border: 2px solid rgba(239, 68, 68, 0.3);
 }
 
 .canonical-result-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .canonical-result-message {
-  font-size: 15px;
-  color: var(--text-color);
-  opacity: 0.8;
-  line-height: 1.6;
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.canonical-result-message strong {
+  color: var(--text-primary);
+  font-size: 17px;
+  display: block;
+  margin-bottom: 12px;
 }
 
 .canonical-result-message code {
-  background: var(--hover-bg);
-  padding: 8px 12px;
-  border-radius: 6px;
-  display: inline-block;
-  margin-top: 5px;
-  font-size: 13px;
+  background: var(--bg-secondary);
+  padding: 12px 16px;
+  border-radius: 10px;
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
   word-break: break-all;
-  color: var(--text-color);
-  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .canonical-info-section {
-  padding-top: 0;
+  padding: 0;
 }
 
 .canonical-info-section h2 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
-  margin-bottom: 12px;
-  margin-top: 25px;
-  color: var(--text-color);
+  margin-bottom: 14px;
+  margin-top: 32px;
+  color: var(--text-primary);
+  position: relative;
+  padding-left: 16px;
+}
+
+.canonical-info-section h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: linear-gradient(180deg, var(--primary), var(--primary-light));
+  border-radius: 2px;
 }
 
 .canonical-info-section h2:first-child {
@@ -241,33 +320,77 @@
 }
 
 .canonical-info-section p {
-  color: var(--text-color);
-  opacity: 0.7;
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 15px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 16px;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .canonical-checker-page {
-    padding: 20px 15px;
+    padding: 30px 20px;
   }
 
   .canonical-card {
-    padding: 20px;
+    padding: 28px;
+    border-radius: 16px;
+  }
+
+  .canonical-card h1 {
+    font-size: 26px;
+  }
+
+  .canonical-result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .canonical-result-icon {
+    align-self: flex-end;
+    width: 44px;
+    height: 44px;
+  }
+
+  .canonical-result-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .canonical-card {
+    padding: 24px;
   }
 
   .canonical-card h1 {
     font-size: 24px;
   }
 
-  .canonical-result-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  .canonical-description {
+    font-size: 15px;
   }
 
-  .canonical-result-icon {
-    align-self: flex-end;
+  .canonical-input-group input[type="text"] {
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+
+  .canonical-check-btn {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+
+  .canonical-result-card {
+    padding: 24px;
+  }
+
+  .canonical-info-section h2 {
+    font-size: 20px;
+  }
+
+  .canonical-info-section p {
+    font-size: 15px;
   }
 }
