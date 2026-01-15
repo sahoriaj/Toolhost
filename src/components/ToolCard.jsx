@@ -5,7 +5,12 @@ const ToolCard = ({ name, image, url }) => {
   return (
     <Link to={`/${url}`} className="tool-card">
       <div className="tool-image-wrapper">
-        <img src={image} alt={name} className="tool-image" />
+        <img 
+          src={image} 
+          alt={`${name} - Free online tool`} 
+          className="tool-image"
+          loading="lazy"
+        />
       </div>
       <h3 className="tool-name">{name}</h3>
     </Link>
